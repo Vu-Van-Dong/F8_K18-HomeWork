@@ -148,8 +148,9 @@
 }
 
 
+
 .banner-title-heading{
-    width: 854px;
+    max-width: 854px;
     /*height: 100px;*/
     flex-direction: row;
     padding: 14px 30px 14px 20px;
@@ -158,6 +159,8 @@
     background-color: #FCFCFD;
     font-size: 25px;
     position: relative;
+
+
 
 ;
 
@@ -296,7 +299,7 @@
     height: 72px;
     background-color: #FFFFFF4D;
     position: absolute;
-    top: 359px;
+    top: 369px;
     left: 762px;
     border-radius: 68px;
     z-index: 8;

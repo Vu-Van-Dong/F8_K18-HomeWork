@@ -9,6 +9,7 @@
 
 body{
     background: #F7F7F8;
+    /*font-family: "Be Vietnam Pro", sans-serif;*/
 }
 
 footer{
@@ -40,15 +41,15 @@ footer{
 .footer-conten{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:center ;
     flex-wrap: wrap;
     position: relative;
 
 }
 .footer-conten> img{
     background-color:#FF9500 ;
-    width: 54px;
-    height: 54px;
+    width: 44px;
+    height: 44px;
     border-radius: 8px;
     position: absolute;
     top:0;
@@ -64,6 +65,10 @@ footer{
     text-decoration: none;
     color: #262626;
     font-size: 18px;
+}
+.footer a:hover{
+    text-decoration: underline;
+    color: #FF9500 ;
 }
 .footer h3{
     color: #262626;
@@ -116,8 +121,6 @@ footer{
     background-color: #F7F7F8;
     border: 1px solid #F7F7F8;
     display: flex;
-
-
 }
 
 
