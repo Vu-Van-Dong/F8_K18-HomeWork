@@ -125,3 +125,93 @@ footer{
 
 
 
+
+@media screen and (max-width: 390px) {
+
+    footer {
+        padding: 40px 16px 24px;
+        margin-top: 60px;
+    }
+
+    /* wrapper */
+    .footer {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        padding-bottom: 32px;
+    }
+
+    /* ===== LOGO + CONTACT ===== */
+    .information {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .footer-conten {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .footer-conten > img {
+        position: static;
+        width: 44px;
+        height: 44px;
+    }
+
+    .footer-conten-information-item {
+        margin-top: 0;
+        gap: 14px;
+    }
+
+    .footer-conten-information-item .item {
+        font-size: 14px;
+    }
+
+    /* ===== LINK SECTIONS ===== */
+    .footer-conten-ingredient-item-heding {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .ingredient-item {
+        width: calc(50% - 12px);
+    }
+
+    .footer h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .footer a {
+        font-size: 14px;
+    }
+
+    /* ===== SOCIAL ===== */
+    .footer-conten-ingredient-item-heding .info {
+        width: 100%;
+    }
+
+    .footer-conten-ingredient-item-heding .info a {
+        margin-right: 12px;
+    }
+
+    .ingredient-item a > img {
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+    }
+
+    /* ===== COPYRIGHT ===== */
+    .footer-bottom {
+        font-size: 14px;
+        margin-top: 24px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+}
+
+
+

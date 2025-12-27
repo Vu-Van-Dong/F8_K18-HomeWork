@@ -1,5 +1,4 @@
 
-
 .container {
     max-width: 1600px;
     margin: auto;
@@ -16,7 +15,7 @@
 }
 
 /* khối chứa toàn bộ items */
-.Courses ,.Testimonials-conten{
+.Courses, .Testimonials-conten {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; /* quan trọng */
@@ -26,7 +25,7 @@
 }
 
 /* mỗi thẻ course */
-.Courses-item ,.Testimonials-item{
+.Courses-item, .Testimonials-item {
     width: 783px;
     /*width: calc(50% - 30px); !* để 2 item chia đều 1 hàng *!*/
     background-color: #FFFFFF;
@@ -49,14 +48,15 @@
 }
 
 /* nội dung */
-.Courses-conten{
+.Courses-conten {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* cho nội dung căn trái giống UI */
     gap: 30px;
     position: relative;
 }
-.Courses-item-center{
+
+.Courses-item-center {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -66,22 +66,24 @@
 }
 
 .Courses-item-center span:nth-child(1),
-.Courses-item-center span:nth-child(2){
-    padding:10px 16px 10px 16px ;
+.Courses-item-center span:nth-child(2) {
+    padding: 10px 16px 10px 16px;
     background-color: #FFFFFF;
     border-radius: 8px;
     margin-right: 10px;
     border: 1px solid #F1F1F3;
 }
-.Courses-item-center span:nth-child(3){
-    color:#262626;
+
+.Courses-item-center span:nth-child(3) {
+    color: #262626;
     font-size: 20px;
     font-weight: 500;
     position: absolute;
-    top:5px;
+    top: 5px;
     right: 0;
 }
-.Courses-item-text{
+
+.Courses-item-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -91,12 +93,13 @@
     width: 683px;
 
 }
-.Courses-item-btn{
+
+.Courses-item-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color:#F7F7F8;
+    background-color: #F7F7F8;
     width: 683px;
     padding: 18px 24px;
     border-radius: 8px;
@@ -105,17 +108,18 @@
     color: #262626;
 
 }
-.Courses-conten a:hover{
+
+.Courses-conten a:hover {
     background-color: #9a9898;
 }
 
 
-
 /*==============Our Testimonials========================*/
 
-.Testimonials-item{
+.Testimonials-item {
     padding: 0;
 }
+
 /* Nội dung text */
 .Testimonials-item p {
     font-size: 18px;
@@ -135,6 +139,7 @@
     width: 100%;
     background-color: #FCFCFD;
 }
+
 .item-author-img {
     display: flex;
     align-items: center;
@@ -153,7 +158,7 @@
 }
 
 .item-author-img a {
-    position: absolute;  /* Ghim nút ở bên phải */
+    position: absolute; /* Ghim nút ở bên phải */
     right: 0;
     padding: 18px 24px;
     background-color: #F7F7F8;
@@ -168,10 +173,12 @@
 .item-author-img a:hover {
     background-color: rgba(92, 87, 87, 0.81);
 }
+
 /*===================Phaan  đầu của Pricing*/
-.benefits-heading{
+.benefits-heading {
     position: relative;
 }
+
 /*.benefits-heading .content-top-text{*/
 /*    display: flex;*/
 /*    flex-direction: column;*/
@@ -180,7 +187,7 @@
 /*    width: 1025px;*/
 
 /*}*/
-.benefits-heading .heading-top-btn{
+.benefits-heading .heading-top-btn {
     display: flex;
     position: absolute;
     padding: 12px;
@@ -190,26 +197,27 @@
     border-radius: 8px;
 
 }
+
 .heading-top-btn a {
     padding: 14px 30px;
     border-radius: 6px;
     text-decoration: none;
     font-size: 18px;
 }
-.heading-top-btn a:first-child{
+
+.heading-top-btn a:first-child {
     background-color: #FF9500;
-    color:#FFFFFF ;
+    color: #FFFFFF;
 }
-.heading-top-btn a:last-child{
+
+.heading-top-btn a:last-child {
     background-color: #ffffff;
-    color:#4C4C4D;
+    color: #4C4C4D;
 }
-
-
 
 
 /*=========pricing-content================*/
-.pricing-content{
+.pricing-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; /* quan trọng */
@@ -223,7 +231,7 @@
 }
 
 
-.pricing-item{
+.pricing-item {
     width: 703px;
     /*width: calc(50% - 30px); !* để 2 item chia đều 1 hàng *!*/
     background-color: #FCFCFD;
@@ -235,7 +243,8 @@
     border: 1px solid #F1F1F3;
     flex-direction: column;
 }
-.pricing-item>span  {
+
+.pricing-item > span {
     padding: 12px 22px;
     border-radius: 6px;
     border: 1px solid #F1F1F3;
@@ -249,7 +258,8 @@
     color: #262626;
     font-weight: 500;
 }
-.pricing-item .pricing-item-heading{
+
+.pricing-item .pricing-item-heading {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -260,13 +270,14 @@
     font-weight: 500;
     color: #4C4C4D;
 }
-.pricing-item-heading>span>strong{
+
+.pricing-item-heading > span > strong {
     color: #262626;
     font-size: 80px;
     font-weight: 600;
 }
 
-.pricing-conten-text >span{
+.pricing-conten-text > span {
     color: #262626;
     display: flex;
     flex-direction: column;
@@ -276,7 +287,8 @@
     font-size: 20px;
     font-weight: 600;
 }
-.pricing-conten-text .conten-text{
+
+.pricing-conten-text .conten-text {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -289,10 +301,11 @@
     position: relative;
     padding: 0 30px 0 30px;
     border: 1px solid #F1F1F3;
-    border-top-left-radius:14px ;
-    border-top-right-radius:14px ;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
 }
-.pricing-conten-text >a{
+
+.pricing-conten-text > a {
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -308,7 +321,8 @@
     margin-top: 10px;
 
 }
-.pricing-conten-text .conten-text .text{
+
+.pricing-conten-text .conten-text .text {
     display: flex;
     /*flex-direction: column;*/
     align-items: center;
@@ -319,30 +333,27 @@
     color: #4C4C4D;
     padding: 14px;
     background-color: #F1F1F3;
-    border-radius: 8px ;
-    gap:12px;
+    border-radius: 8px;
+    gap: 12px;
     border: 1px solid #F1F1F3;
     position: relative;
 
 }
-.pricing-conten-text .conten-text .text img{
+
+.pricing-conten-text .conten-text .text img {
     width: 20px;
     height: 20px;
     border-radius: 6px;
     background-color: #FFF4E5;
     background-position: center;
-    padding:6px ;
+    padding: 6px;
 }
-
-
-
-
 
 
 /*=========================Frequently===============*/
 
 
-.Frequently{
+.Frequently {
     display: flex;
     background-color: white;
     margin-top: 150px;
@@ -352,27 +363,30 @@
 
 }
 
-.Frequently-heading{
+.Frequently-heading {
     max-width: 408px;
     width: 100%;
     height: 293px;
 
 
 }
-.Frequently-heading h2{
+
+.Frequently-heading h2 {
     color: #262626;
     font-size: 48px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.Frequently-heading p{
+
+.Frequently-heading p {
     color: #4C4C4D;
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 50px;
 
 }
-.Frequently-heading a{
+
+.Frequently-heading a {
     padding: 18px 24px;
     color: #262626;
     background-color: #FFFFFF;
@@ -382,14 +396,15 @@
     font-weight: 500;
 
 }
-.Frequently-content-item{
+
+.Frequently-content-item {
     width: 867px;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:50px;
+    gap: 50px;
     /*padding: 50px;*/
     border: 1px solid #F1F1F3;
     border-radius: 12px;
@@ -404,15 +419,15 @@
     justify-content: flex-start;
     width: 867px;
     gap: 30px;
-     position: relative;
+    position: relative;
     /* top:100px;           BỎ */
     /* right: 100px;        BỎ */
-    margin-left: auto;   /* nếu bạn muốn dồn sang phải */
+    margin-left: auto; /* nếu bạn muốn dồn sang phải */
 }
 
 
 /*.Frequently-item-title*/
-.Frequently-content-item label{
+.Frequently-content-item label {
     display: flex;
     align-items: center;
     justify-content: space-between; /* mọi thứ về trái */
@@ -424,10 +439,11 @@
     position: relative;
 }
 
-.Frequently-item-title span{
+.Frequently-item-title span {
     font-size: 20px;
     font-weight: 500;
 }
+
 /*.Frequently-item-title span:last-child{*/
 /*    width: 52px;*/
 /*    height: 52px;*/
@@ -437,7 +453,7 @@
 /*    cursor: pointer;*/
 /*    position: relative;*/
 /*}*/
-.Frequently-item-title .Frequently-item-title-icon-flex>img{
+.Frequently-item-title .Frequently-item-title-icon-flex > img {
     width: 52px;
     height: 52px;
     background-position: center;
@@ -448,11 +464,12 @@
     cursor: pointer;
     /*display: none;*/
     position: absolute;
-    top:17px;
-    right:50px;
+    top: 17px;
+    right: 50px;
 
 }
-.Frequently-item-title .Frequently-item-title-icon-none>img,.Frequently-item-conten-heading-bottom span>img{
+
+.Frequently-item-title .Frequently-item-title-icon-none > img, .Frequently-item-conten-heading-bottom span > img {
     width: 52px;
     height: 52px;
     background-position: center;
@@ -462,12 +479,13 @@
     background-color: #FFF4E5;
     cursor: pointer;
     position: absolute;
-    top:20px;
-    right:30px;
+    top: 20px;
+    right: 30px;
     display: none;
 
 }
-.Frequently-item-conten p{
+
+.Frequently-item-conten p {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -480,7 +498,8 @@
     margin-bottom: 50px;
 
 }
-.Frequently-item-conten-heading-bottom{
+
+.Frequently-item-conten-heading-bottom {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -499,7 +518,8 @@
 
 
 }
-.Frequently-item-conten-heading-bottom .Frequently-item-conten-icon>img{
+
+.Frequently-item-conten-heading-bottom .Frequently-item-conten-icon > img {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -508,10 +528,9 @@
     display: block;
 }
 
-.Frequently-item-conten{
+.Frequently-item-conten {
     display: none;
 }
-
 
 
 /* Ẩn icon dấu X ban đầu */
@@ -540,13 +559,681 @@
 }
 
 
+@media screen and (max-width: 390px) {
+
+    /* ================= COURSES ================= */
+    .Courses,
+    .Testimonials-conten {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 40px;
+    }
+
+    .Courses-item,
+    .Testimonials-item {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .Courses-item-center,
+    .Courses-item-text,
+    .Courses-item-btn {
+        width: 100%;
+    }
+
+    .Courses-item-center {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 8px;
+    }
+
+    .Courses-item-center span:nth-child(3) {
+        position: static;
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .Courses-item-text {
+        font-size: 14px;
+    }
+
+    .Courses-item-btn {
+        font-size: 14px;
+        padding: 14px;
+    }
+
+    /* ================= TESTIMONIALS ================= */
+    .Testimonials-item p {
+        padding: 24px;
+        font-size: 14px;
+    }
+
+    .item-author {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .item-author-img {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .item-author-img a {
+        position: static;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    /*!* ================= PRICING ================= *!*/
+    /*.pricing-content {*/
+    /*    flex-direction: column;*/
+    /*    padding: 24px;*/
+    /*    gap: 16px;*/
+    /*}*/
+
+    /*.pricing-item {*/
+    /*    width: 100%;*/
+    /*    padding: 24px;*/
+    /*    gap: 24px;*/
+    /*}*/
+
+    /*.pricing-item > span,*/
+    /*.pricing-item-heading,*/
+    /*.pricing-conten-text .conten-text,*/
+    /*.pricing-conten-text .text {*/
+    /*    width: 100%;*/
+    /*    font-size: 14px;*/
+    /*}*/
+
+    /*.pricing-item-heading > span > strong {*/
+    /*    font-size: 40px;*/
+    /*}*/
+
+    /*.pricing-conten-text > a {*/
+    /*    font-size: 16px;*/
+    /*    padding: 16px;*/
+    /*}*/
+
+    /*.pricing-conten-text .text {*/
+    /*    width: 100%;*/
+    /*    font-size: 14px;*/
+    /*    padding: 12px;*/
+    /*}*/
+
+    /* ================= FREQUENTLY ================= */
+    .Frequently {
+        flex-direction: column;
+        padding: 24px;
+        margin-top: 60px;
+        gap: 24px;
+    }
+
+    .Frequently-heading {
+        width: 100%;
+        height: auto;
+    }
+
+    .Frequently-heading h2 {
+        font-size: 24px;
+    }
+
+    .Frequently-heading p {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .Frequently-heading a {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .Frequently-content,
+    .Frequently-content-item {
+        width: 100%;
+        margin-left: 0;
+        gap: 16px;
+    }
+
+    .Frequently-content-item label {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .Frequently-item-title span {
+        font-size: 14px;
+    }
+
+    .Frequently-item-title img {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        right: 16px;
+        top: 16px;
+    }
+
+    .Frequently-item-conten-heading-bottom {
+        width: 100%;
+        font-size: 14px;
+        padding: 16px;
+    }
+
+    .Frequently-item-conten p {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+
+}
 
 
 
 
+/*@media screen and (max-width: 390px) {*/
+
+/*    !* ===== OUR PRICING HEADING ===== *!*/
+/*    .Pricing {*/
+/*        padding: 24px 16px;*/
+/*    }*/
+
+/*    .Pricing .benefits-heading {*/
+/*        position: static;*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        gap: 12px;*/
+/*        text-align: center;*/
+/*    }*/
+
+/*    .Pricing .benefits-heading h2 {*/
+/*        font-size: 24px;*/
+/*        line-height: 1.3;*/
+/*    }*/
+
+/*    .Pricing .benefits-heading p {*/
+/*        font-size: 14px;*/
+/*        line-height: 1.6;*/
+/*        color: #4C4C4D;*/
+/*    }*/
+
+/*    !* Monthly / Yearly pill *!*/
+/*    .Pricing .heading-top-btn {*/
+/*        position: static;*/
+/*        margin: 16px auto 0;*/
+/*        padding: 4px;*/
+/*        display: flex;*/
+/*        gap: 4px;*/
+/*        background: #F1F1F3;*/
+/*        border-radius: 8px;*/
+/*        width: fit-content;*/
+/*    }*/
+
+/*    .Pricing .heading-top-btn a {*/
+/*        padding: 8px 16px;*/
+/*        font-size: 14px;*/
+/*        border-radius: 6px;*/
+/*    }*/
+
+/*    !* ===== PRICING LIST ===== *!*/
+/*    .pricing-content {*/
+/*        margin-top: 24px;*/
+/*        padding: 0;*/
+/*        flex-direction: column;*/
+/*        gap: 16px;*/
+/*        background: transparent;*/
+/*    }*/
+
+/*    .pricing-item {*/
+/*        width: 100%;*/
+/*        padding: 20px 16px;*/
+/*        gap: 16px;*/
+/*        border-radius: 12px;*/
+/*    }*/
+
+/*    !* Plan badge *!*/
+/*    .pricing-item > span {*/
+/*        width: 100%;*/
+/*        font-size: 14px;*/
+/*        padding: 8px;*/
+/*        background: #FFF4E5;*/
+/*    }*/
+
+/*    !* Price *!*/
+/*    .pricing-item-heading {*/
+/*        width: 100%;*/
+/*        height: auto;*/
+/*        font-size: 14px;*/
+/*        color: #656567;*/
+/*    }*/
+
+/*    .pricing-item-heading strong {*/
+/*        font-size: 36px;*/
+/*        color: #262626;*/
+/*    }*/
+
+/*    !* Available Features title *!*/
+/*    .pricing-conten-text > span {*/
+/*        font-size: 14px;*/
+/*        margin-bottom: 8px;*/
+/*    }*/
+
+/*    !* Feature list *!*/
+/*    .pricing-conten-text .conten-text {*/
+/*        width: 100%;*/
+/*        padding: 12px;*/
+/*        gap: 10px;*/
+/*        border-radius: 8px 8px 0 0;*/
+/*    }*/
+
+/*    .pricing-conten-text .conten-text .text {*/
+/*        width: 100%;*/
+/*        font-size: 14px;*/
+/*        padding: 10px;*/
+/*        background: #F7F7F8;*/
+/*    }*/
+
+/*    .pricing-conten-text .conten-text .text img {*/
+/*        width: 16px;*/
+/*        height: 16px;*/
+/*        padding: 4px;*/
+/*    }*/
+
+/*    !* CTA *!*/
+/*    .pricing-conten-text > a {*/
+/*        width: 100%;*/
+/*        font-size: 14px;*/
+/*        padding: 12px;*/
+/*        border-radius: 0 0 8px 8px;*/
+/*    }*/
+/*}*/
 
 
 
+/* ================= MOBILE PRICING ================= */
+@media screen and (max-width: 390px) {
+
+    /* 1. GIỚI HẠN SECTION */
+    .Pricing {
+        width: 100%;
+        max-width: 390px;
+        margin: 0 auto;
+        padding: 24px 16px;
+    }
+
+    /* 2. HEADING */
+    .Pricing .benefits-heading {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .Pricing h2 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+    .Pricing p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #4C4C4D;
+    }
+
+    /* Monthly / Yearly */
+    .heading-top-btn {
+        position: static;
+        margin: 12px auto 0;
+        padding: 4px;
+        display: flex;
+        gap: 4px;
+        background: #F1F1F3;
+        border-radius: 8px;
+        width: fit-content;
+    }
+
+    .heading-top-btn a {
+        font-size: 14px;
+        padding: 8px 14px;
+        border-radius: 6px;
+    }
+
+    /* 3. PRICING LIST */
+    .pricing-content {
+        width: 100%;
+        margin-top: 24px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background: transparent;
+    }
+
+    /* 4. PRICING CARD */
+    .pricing-item {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 16px;
+        gap: 16px;
+        border-radius: 12px;
+    }
+
+    /* Plan name */
+    .pricing-item > span {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px;
+        background: #FFF4E5;
+        text-align: center;
+    }
+
+    /* Price */
+    .pricing-item-heading {
+        width: 100%;
+        font-size: 14px;
+        text-align: center;
+        color: #656567;
+    }
+
+    .pricing-item-heading strong {
+        font-size: 32px;
+        color: #262626;
+    }
+
+    /* Available Features */
+    .pricing-conten-text > span {
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    /* Feature box */
+    .pricing-conten-text .conten-text {
+        width: 100%;
+        padding: 12px;
+        gap: 10px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .pricing-conten-text .conten-text .text {
+        width: 100%;
+        font-size: 13px;
+        padding: 10px;
+        line-height: 1.5;
+        background: #F7F7F8;
+    }
+
+    /* Icons */
+    .pricing-conten-text .text img {
+        width: 14px;
+        height: 14px;
+        padding: 3px;
+    }
+
+    /* CTA */
+    .pricing-conten-text > a {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 0 0 8px 8px;
+    }
+}
+
+
+
+
+/* ================= MOBILE PRICING (Max-width 390px) ================= */
+@media screen and (max-width: 390px) {
+
+    /* 1. Container bao ngoài */
+    .Pricing {
+        padding: 40px 16px; /* Giảm padding so với desktop */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 2. Phần Tiêu đề (Header + Nút Monthly/Yearly) */
+    .Pricing .benefits-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Căn giữa */
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .Pricing .benefits-heading h2 {
+        font-size: 28px; /* Giảm size chữ */
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+
+    .Pricing .benefits-heading p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* Đưa nút Monthly/Yearly về giữa và bỏ position absolute */
+    .Pricing .heading-top-btn {
+        position: static;
+        margin: 0 auto;
+        width: fit-content;
+        background-color: #F1F1F3; /* Đảm bảo có nền */
+    }
+
+    .heading-top-btn a {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* 3. Danh sách thẻ giá (Grid System) */
+    .pricing-content {
+        display: flex;
+        flex-direction: column; /* Xếp dọc từng thẻ */
+        padding: 0; /* Reset padding 80px của desktop */
+        gap: 20px;
+        width: 100%;
+        background-color: transparent; /* Bỏ nền trắng to của desktop */
+    }
+
+    /* 4. Từng thẻ giá (Card Item) */
+    .pricing-item {
+        width: 100%; /* Quan trọng: Ghi đè width 703px */
+        padding: 24px 20px;
+        height: auto; /* Reset chiều cao */
+        gap: 20px;
+        box-sizing: border-box;
+    }
+
+    /* --- RESET CÁC PHẦN TỬ CON CÓ WIDTH CỐ ĐỊNH --- */
+
+    /* Tên gói (Free/Pro Plan) */
+    .pricing-item > span {
+        width: 100%; /* Ghi đè width 643px */
+        font-size: 18px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Khu vực giá tiền */
+    .pricing-item .pricing-item-heading {
+        width: 100%; /* Ghi đè width 643px */
+        height: auto;
+    }
+
+    .pricing-item-heading > span > strong {
+        font-size: 50px; /* Giảm từ 80px xuống cho vừa màn hình */
+    }
+
+    /* Khối chứa danh sách tính năng */
+    .pricing-conten-text {
+        width: 100%;
+    }
+
+    .pricing-conten-text .conten-text {
+        width: 100%; /* Ghi đè width 643px */
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    /* Từng dòng tính năng */
+    .pricing-conten-text .conten-text .text {
+        width: 100%; /* Ghi đè width 503px */
+        font-size: 14px;
+        padding: 12px;
+        display: flex;
+        align-items: flex-start; /* Căn icon thẳng hàng với dòng đầu của text */
+        text-align: left;
+        box-sizing: border-box;
+    }
+
+    /* Chỉnh lại icon trong dòng tính năng */
+    .pricing-conten-text .conten-text .text img {
+        flex-shrink: 0; /* Không cho icon bị méo */
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Nút Get Started */
+    .pricing-conten-text > a {
+        width: 100%;
+        font-size: 16px;
+        padding: 16px;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ================= FAQ MOBILE FIX (Max-width 390px) ================= */
+@media screen and (max-width: 390px) {
+
+    /* 1. Container chính */
+    .Frequently {
+        flex-direction: column;
+        padding: 40px 16px; /* Padding chuẩn mobile */
+        margin-top: 40px;
+        gap: 24px;
+        height: auto; /* Bỏ chiều cao cố định */
+    }
+
+    /* 2. Phần Tiêu đề bên trên */
+    .Frequently-heading {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        text-align: left;
+    }
+    .Frequently-heading h2 { font-size: 24px; margin-bottom: 8px; }
+    .Frequently-heading p { font-size: 14px; margin-bottom: 16px; }
+    .Frequently-heading a { display: inline-block; width: fit-content; }
+
+    /* 3. Danh sách câu hỏi */
+    .Frequently-content {
+        width: 100%;
+        margin: 0;
+        gap: 16px;
+    }
+
+    /* Reset thẻ bao ngoài item */
+    .Frequently-content-item {
+        width: 100%; /* Ghi đè 867px */
+        border: 1px solid #F1F1F3;
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    /* 4. Thanh tiêu đề câu hỏi (Label) */
+    .Frequently-content-item label {
+        width: 100%;
+        padding: 20px;
+        gap: 12px;
+        box-sizing: border-box;
+        border: none;
+
+        /* Flexbox để căn chỉnh Text và Icon */
+        display: flex;
+        align-items: center; /* Căn giữa dọc */
+        justify-content: space-between; /* Đẩy 2 đầu */
+    }
+
+    /* Container chứa text và icon bên trong label */
+    .Frequently-item-title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: static; /* Bỏ relative cũ */
+    }
+
+    /* Text câu hỏi */
+    .Frequently-item-title span:first-child {
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.4;
+        text-align: left;
+        padding-right: 10px; /* Cách icon ra 1 chút */
+        flex: 1; /* Để text chiếm hết khoảng trống còn lại */
+    }
+
+    /* --- XỬ LÝ ICON (+ và x) --- */
+    /* Quan trọng: Bỏ position absolute để icon không đè chữ */
+    .Frequently-item-title .Frequently-item-title-icon-flex > img,
+    .Frequently-item-title .Frequently-item-title-icon-none > img {
+        position: static;
+        top: auto; right: auto;
+        width: 40px; height: 40px;
+        padding: 10px;
+        background-color: #FFF4E5; /* Màu nền icon */
+        border-radius: 8px;
+        flex-shrink: 0; /* Không cho icon bị méo */
+    }
+
+    /* Giữ nguyên logic hiển thị icon đóng/mở */
+    .Frequently-check:checked ~ label .Frequently-item-title-icon-flex > img { display: none; }
+    .Frequently-check:checked ~ label .Frequently-item-title-icon-none > img { display: block; }
+
+    /* 5. Nội dung bên trong (Khi mở ra) */
+    .Frequently-item-conten {
+        width: 100%;
+        padding: 0 20px 24px 20px; /* Padding dưới để thoáng */
+        box-sizing: border-box;
+    }
+
+    .Frequently-item-conten p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    /* Box xám "Enrollment Process" */
+    .Frequently-item-conten-heading-bottom {
+        width: 100%; /* Ghi đè 767px */
+        height: auto;
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        background-color: #F7F7F8;
+    }
+
+    .Frequently-item-conten-heading-bottom span:first-child {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /* Icon mũi tên trong box xám */
+    .Frequently-item-conten-heading-bottom .Frequently-item-conten-icon > img {
+        position: static; /* Bỏ absolute */
+        width: 32px; height: 32px;
+        padding: 8px;
+        border-radius: 50%;
+        background: #fff;
+        flex-shrink: 0;
+    }
+}
 
 
 
