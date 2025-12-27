@@ -249,6 +249,7 @@
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
+    white-space: nowrap;
 }
 .banner-title-button .button-courses{
     background-color: #FF9500;
