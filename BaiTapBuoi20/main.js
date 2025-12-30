@@ -22,36 +22,103 @@ b = 5
 console.log(a, b)
 
 
-// Trả lời bằng comment trong code:
-// 	const khác let ở điểm nào?		: const khác  let ở điểm cơ bản nhất là  const  khai báo cho biến đó 1 lần và không thể thay đổi
+
+// 	How is const different from let?		: const differs from let in the most basic way that const declares that variable once and cannot be changed
 //                                 VD : const c = 2
-//                                      c = 3    (code sẽ lỗi , không hợp lệ )
+//                                      c = 3    (The code will be error and invalid )
 //                                  VD với let :let b = 10
-//                                      b = 5 (hợp lệ , code chạy bình thường và nhận giá trị bằng 5 )
-// 	Khi nào nên dùng const?         : nên dùng cosnt khi biến đó là 1 hằng số và không thể thay đổi ví dụ như tong toán pi = 3.1416......
+//                                      b = 5 (valid, the code runs normally and receives a value of 5 )
+// 	When should const be used?         : You should use cosnt when the variable is a constant and cannot be changed, for example, the sum of pi = 3.1416......
+
+
+//🟡 Past 3: Data type
+// 	Xác định kiểu dữ liệu của các giá trị sau (ghi comment):
+// 		100
+// 		100
+// 		TRUE
+// 		[1, 2, 3]
+// 		{ name: "An", age: 20 }
+// 		null
+// 		undefined
+//
+// 	Tạo một object student gồm:
+// 		name
+// 		age
+// 		scores (array gồm 3 số)
+//
+// 		In object này ra console.
+
+
+// Tạo object student
+// let student = {
+//     name: "An",
+//     age: 20,
+//     scores: [8, 7.5, 9]
+// };
+//
+// // In ra console
+// console.log(student);
+
+// Xác định kiểu dữ liệu
+
+// 100 → number
+// 100 → number
+// true → boolean
+// [1, 2, 3] → object (array)
+// { name: "An", age: 20 } → object
+// null → object
+// undefined → undefined
+
+// Tạo object student
+let student = {
+    name: "An",
+    age: 20,
+    scores: [8, 7.5, 9]
+};
+
+// In ra console
+console.log(student);
 
 
 
-// Đoạn code sau đúng hay sai? Giải thích:
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	past 4 	TYpe casting
+// The following code is correct or incorrect? Explain:
 // 	"const x = 10;
 // x = 20;"
-// trả lời : đoạn code trên là sai vì như đã chỉ ra ở diểm khá nhau giữa const và let ở trên, const chỉ nhận 1 giá trị được khởi tạo biến ban đầu nên sẽ không nhận khi gán giá trị.
+// Answer: The above code is wrong because as pointed out in the difference between const and let above, const only receives 1 value that is initialized to the initial variable so it will not be received when assigning the value.
 
 
-let c = '10000'
-console.log(Number(c))
+// "1000" → number
+const names = "1000"
+console.log(typeof Number(names), names)
 
-let d = 10000
-console.log(String(d))
+let e = 10000
+console.log( typeof String(e),e)
 
-let e = true
-console.log(String(e))
-
-
-
+const isTrue = true
+console.log(typeof String(isTrue), isTrue)
 
 
-//	Dự đoán kết quả (true / false):
+
+
+
+
+
+// Part 5
+//	Predict the result (true / false):
 // 		Boolean(0)	           : -> false
 // 		Boolean(1)             : -> True
 // 		Boolean("")             : -> false
@@ -60,27 +127,22 @@ console.log(String(e))
 // 		Boolean([])             : ->True
 
 
-//🔵 Phần 6: Array & bộ nhớ (liên hệ sơ đồ RAM)
-// 	Cho mảng:
-// 		const numbers = [4, 3, 1, 5, 1];
-const numbers = [4, 3, 1, 5, 1]
-console.log(numbers[4])
+//🔵 Part 6: Array & memory (contact RAM diagram)
+// 		const numbers = [4, 3, 1, 5, 1]
+        const numbers = [4, 3, 1, 5, 1]
+        console.log(numbers[4])
 
-// 	    Cơ dở lý thuyết: trong kiến trúc máy tính , trên Ram chứa rất nhiều ô nhớ, khi khởi tạo mỗi phần tử chiếm 1 ô nhớ mỗi mảng cũng sẽ tương tự sẽ chiếm 1 mảng ô nhớ gồm n ô nhớ cho n phần từ , số thứ tự được đánh số cho các ô nhớ của mảng bắt đàu từ 0 và kết thúc cho phần tử n là vị trí n-1.
+// 	    Theoretical basis: in computer architecture, RAM contains many memory cells. When initialized, each element occupies 1 memory cell, each array will similarly occupy an array of memory cells including n memory cells for n words, the numbering of the array's memory cells starts from 0 and ends with element n at position n-1.
 
-// 		In phần tử đầu tiên		:console.log(numbers[0])
-// 		In phần tử cuối cùng    : console.log(numbers[4])
+// 		Print the first element	:console.log(numbers[0])
+// 		Print the last element   : console.log(numbers[4])
 //
-// 	Giải thích bằng lời (không cần code):
-// 		Vì sao khi gán:
+// 	Verbal explanation (no code needed):
+// 		Why when assigning:
 // 			const a = numbers;
 //
-// 		thì a và numbers lại liên quan đến cùng một vùng nhớ?
-//   Giải thích : như cơ sở lý thuyết các phần trên , khi gán const a = number thì tức là a và number đang là 1 phần tử cố định do ddùng const, dùng chung 1 vùng nhớ , a = number và number =a , nên avà number luôn luôn là 1 và không thể thay đổi.
-
-
-
-
+// 		So a and numbers are related to the same memory area?
+//   Explanation: according to the theoretical basis of the above sections, when assigning const a = number, it means that a and number are a fixed element due to the use of const, sharing the same memory area, a = number and number = a, so a and number are always 1 and cannot be changed.
 
 
 
