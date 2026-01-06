@@ -6,8 +6,9 @@
 //
 // 	Requirement: Use the ternary operator to assign the value to the ticketPrice variable.
 
+function getTicketPrice(age) {
+		return age < 13 ? 50000 : 100000
+}
 
-let age = 11
-let ticketPrice = age<13 ?50000 : 100000
-console.log(ticketPrice)
-
+// Example
+console.log(getTicketPrice(11))

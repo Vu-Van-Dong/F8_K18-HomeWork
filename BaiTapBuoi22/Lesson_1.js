@@ -7,20 +7,23 @@
 // 	Under 5: Weak
 // 	Requirement: Check if the entered score is valid (0-10) before evaluating.
 //
-
-let score = 10
-
-if (score <= 10 && score >=9) {
-		console.log("Xuat sac")
-} else  if (score >= 8 && score <=9) {
-		console.log("rat tot")
-}else if (score >= 6.5 && score <=8) {
-		console.log("Tot")
-}else if (score >= 5 && score <=6.5) {
-		console.log("Trung binh")
-}else if (score < 5) {
-		console.log("yeu")
-}else {
-		console.log("So diem khong hop le")
+function classifyScore(score) {
+		if (score < 0 || score > 10) {
+				return "Invalid score"
+		} else if (score >= 9) {
+				return "Excellent"
+		} else if (score >= 8) {
+				return "Very Good"
+		} else if (score >= 6.5) {
+				return "Good"
+		} else if (score >= 5) {
+				return "Average"
+		} else {
+				return "Weak"
+		}
 }
+
+// Example
+console.log(classifyScore(10))
+
 

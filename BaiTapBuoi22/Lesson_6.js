@@ -14,23 +14,24 @@
 //
 //
 
-
-let elctric = 109
-
-function electricPrice(elctric) {
-		if (elctric > 0 && elctric <= 50) {
-				return elctric * 1678
-		} else if ( elctric>50 && elctric <= 100 ) {
-				return 50 * 1678 + (elctric - 50) * 1734
-		} else if ( elctric >100 && elctric <= 200) {
-				return 50 * 1678 + 50 * 1734 + (elctric - 100) * 2014
+function getElectricityBill(electric) {
+		if (electric <= 0) {
+				return "Invalid consumption"
+		} else if (electric <= 50) {
+				return electric * 1678
+		} else if (electric <= 100) {
+				return 50 * 1678 + (electric - 50) * 1734
+		} else if (electric <= 200) {
+				return 50 * 1678 + 50 * 1734 + (electric - 100) * 2014
 		} else {
-				return 50 * 1678 + 50 * 1734 + 100 * 2014 + (elctric - 200) * 2536
+				return (
+						50 * 1678 + 50 * 1734 + 100 * 2014 + (electric - 200) * 2536
+				)
 		}
 }
 
-console.log("Tien dien:", electricPrice(elctric))
-
+// Example
+console.log(getElectricityBill(1020))
 
 
 
