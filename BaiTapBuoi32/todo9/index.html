@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>todo9</title>
+		
+		<style>
+			
+			.done-btn{
+				background: yellow;
+			}
+			
+			.done{
+				background: green;
+				color: white;
+			}
+			
+			.delete-btn{
+				background: red;
+				color: white;
+			}
+		
+		</style>
+	</head>
+	<body>
+		
+		<h3>Todo App</h3>
+		
+		<input id="taskInput" placeholder="Enter task">
+		<button id="addBtn">Add</button>
+		
+		<br><br>
+		
+		<input id="searchInput" placeholder="Search task">
+		
+		<br><br>
+		
+		<label>
+			<input type="checkbox" id="filterDone">
+			Done
+		</label>
+		
+		<ul id="taskList"></ul>
+		
+		<script src="./main.js"></script>
+	
+	
+	</body>
+</html>
