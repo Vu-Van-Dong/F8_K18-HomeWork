@@ -1,102 +1,91 @@
-
-
-
 const input = document.getElementById("taskInput")
 const addBtn = document.getElementById("addBtn")
 const list = document.getElementById("taskList")
 
-const searchInput = document.getElementById("searchInput")
-const filterDone = document.getElementById("filterDone")
+const search = document.getElementById("searchInput")
+const filter = document.getElementById("filterDone")
 
-
-// ADD TASK
-addBtn.addEventListener("click", function(){
+// thêm công việc
+addBtn.onclick = function(){
 		
-		const value = input.value.trim()
-		if(value === "") return
+		const text = input.value
+		if(text === "") return
 		
 		const li = document.createElement("li")
 		
-		const text = document.createElement("span")
-		text.textContent = value
-		
-		const doneBtn = document.createElement("button")
-		doneBtn.textContent = "Done"
-		doneBtn.classList.add("done-btn")
-		
-		const deleteBtn = document.createElement("button")
-		deleteBtn.textContent = "Delete"
-		deleteBtn.classList.add("delete-btn")
-		
-		li.appendChild(text)
-		li.appendChild(doneBtn)
-		li.appendChild(deleteBtn)
+		li.innerHTML = `
+        <span>${text}</span>
+        <button class="done">Done</button>
+        <button class="delete">Delete</button>
+    `
 		
 		list.appendChild(li)
 		
 		input.value = ""
-})
+}
 
 
-// EVENT DELEGATION
-list.addEventListener("click", function(e){
+// click trong list
+list.onclick = function(e){
 		
-		// DONE BUTTON
-		if(e.target.textContent === "Done"){
-				e.target.classList.toggle("done")
+		// done
+		if(e.target.className === "done"){
+				if(e.target.style.background === "green"){
+						e.target.style.background = "yellow"
+				}else{
+						e.target.style.background = "green"
+				}
 		}
 		
-		// DELETE BUTTON
-		if(e.target.textContent === "Delete"){
+		// delete
+		if(e.target.className === "delete"){
 				e.target.parentElement.remove()
 		}
 		
-})
+}
 
 
-// SEARCH
-searchInput.addEventListener("input", function(){
+// search
+search.oninput = function(){
 		
-		const keyword = searchInput.value.toLowerCase()
+		const keyword = search.value.toLowerCase()
 		
-		const items = list.querySelectorAll("li")
+		const items = list.getElementsByTagName("li")
 		
-		items.forEach(function(li){
+		for(let i = 0; i < items.length; i++){
 				
-				const text = li.querySelector("span").textContent.toLowerCase()
+				const text = items[i].innerText.toLowerCase()
 				
 				if(text.includes(keyword)){
-						li.style.display = ""
+						items[i].style.display = ""
 				}else{
-						li.style.display = "none"
+						items[i].style.display = "none"
 				}
 				
-		})
+		}
 		
-})
+}
 
 
-// FILTER DONE
-filterDone.addEventListener("change", function(){
+// filter done
+filter.onchange = function(){
 		
-		const items = list.querySelectorAll("li")
+		const items = list.getElementsByTagName("li")
 		
-		items.forEach(function(li){
+		for(let i = 0; i < items.length; i++){
 				
-				const doneBtn = li.querySelector(".done-btn")
+				const btn = items[i].querySelector(".done")
 				
-				if(filterDone.checked){
-						
-						if(doneBtn.classList.contains("done")){
-								li.style.display = ""
+				if(filter.checked){
+						if(btn.style.background === "green"){
+								items[i].style.display = ""
 						}else{
-								li.style.display = "none"
+								items[i].style.display = "none"
 						}
-						
 				}else{
-						li.style.display = ""
+						items[i].style.display = ""
 				}
 				
-		})
+		}
 		
-})
+}
