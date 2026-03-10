@@ -9,7 +9,7 @@ function startCountdown(seconds) {
 				count--
 				
 				if (count === 0) {
-						console.log("Hết giờ!")
+						console.log("Het gio !")
 						clearInterval(intervalId)
 				}
 				

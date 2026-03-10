@@ -3,7 +3,7 @@ function getProduct(productId) {
 		
 		return new Promise(function (resolve, reject) {
 				
-				console.log("Kiểm tra tồn kho...")
+				console.log("Kiem tra ton kho...")
 				
 				setTimeout(function () {
 						
@@ -16,13 +16,13 @@ function getProduct(productId) {
 										stock: 5
 								}
 								
-								console.log("Tồn kho hợp lệ")
+								console.log("Ton kho khong hop le!")
 								
 								resolve(product)
 								
 						} else {
 								
-								reject("Sản phẩm không tồn tại")
+								reject("San pham khong ton tai!")
 								
 						}
 						
@@ -38,19 +38,19 @@ function processPayment(product) {
 		
 		return new Promise(function (resolve, reject) {
 				
-				console.log("Đang thanh toán...")
+				console.log("Dang thanh toan...")
 				
 				setTimeout(function () {
 						
 						if (product.stock > 0) {
 								
-								console.log("Thanh toán thành công")
+								console.log("Thanh toan thanh cong")
 								
 								resolve(product)
 								
 						} else {
 								
-								reject("Hết hàng")
+								reject("Het hang")
 								
 						}
 						
@@ -66,7 +66,7 @@ function createOrder(product) {
 		
 		return new Promise(function (resolve) {
 				
-				console.log("Đang tạo đơn hàng...")
+				console.log("Dang tao đon hang...")
 				
 				setTimeout(function () {
 						
