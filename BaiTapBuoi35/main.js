@@ -19,6 +19,7 @@ const registerSchema = z
 				"SĐT phải là 10 số và bắt đầu bằng 0"
 		),
 		
+		
 		role: z.enum(["dev", "design", "pm", "other"], {
 				errorMap: () => ({ message: "Vui lòng chọn vai trò" }),
 		}),
