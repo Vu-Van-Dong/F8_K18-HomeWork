@@ -1,23 +1,86 @@
-import { useEffect, useState } from "react";
-import { questions } from "./data/questions";
-import "./index.css";
+import "./App.css";
+import { useCallback, useEffect, useState } from "react";
+import { Box, Grid } from "@mui/material";
+import { HeaderBar, QuestionBox, SideBar } from "./components";
+import type { QuestionI, SelectingOptionI } from "./types";
 
 const EXAM_TIME = 10 * 60;
 
-export default function App() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState<(number | null)[]>(
-      Array(questions.length).fill(null)
-  );
+function App() {
+  const questions: QuestionI[] = [
+    {
+      id: 1,
+      text: "Khái niệm 'đường bộ' được hiểu như thế nào là đúng?",
+      options: [
+        "Đường, cầu đường bộ.",
+        "Hầm đường bộ, bến phà đường bộ.",
+        "Đường, cầu đường bộ, hầm đường bộ, bến phà đường bộ và các công trình phụ trợ.",
+      ],
+      correct: 2,
+    },
+    {
+      id: 2,
+      text: "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?",
+      options: [
+        "Là người điều khiển xe cơ giới.",
+        "Là người điều khiển xe thô sơ.",
+        "Là người điều khiển xe có súc vật kéo.",
+      ],
+      correct: 0,
+    },
+    {
+      id: 3,
+      text: "Dải phân cách được hiểu như thế nào là đúng?",
+      options: [
+        "Là bộ phận của đường để ngăn cách không cho xe vào nơi cấm.",
+        "Là bộ phận của đường để phân chia mặt đường thành hai chiều xe chạy riêng biệt.",
+        "Là bộ phận để phân tách phần đường xe chạy và hành lang an toàn.",
+      ],
+      correct: 1,
+    },
+    {
+      id: 4,
+      text: "Người tham gia giao thông đường bộ gồm những đối tượng nào?",
+      options: [
+        "Người điều khiển phương tiện giao thông.",
+        "Người đi bộ, người dẫn dắt súc vật.",
+        "Cả ý 1 và ý 2.",
+      ],
+      correct: 2,
+    },
+    {
+      id: 5,
+      text: "Tín hiệu đèn màu vàng có ý nghĩa gì?",
+      options: [
+        "Phải dừng lại trước vạch dừng.",
+        "Được đi tiếp bình thường.",
+        "Tăng tốc để vượt qua giao lộ.",
+      ],
+      correct: 0,
+    },
+  ];
+
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [selectingOption, setSelectingOption] = useState<SelectingOptionI>({});
   const [timeLeft, setTimeLeft] = useState(EXAM_TIME);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const currentQuestion = questions[currentIndex];
+  const selectingQuestion = questions[questionIndex];
+
+  const handleSubmit = useCallback(() => {
+    alert("Nộp bài thành công!");
+
+    setQuestionIndex(0);
+    setSelectingOption({});
+    setTimeLeft(EXAM_TIME);
+    setIsSubmitted(false);
+  }, []);
 
   useEffect(() => {
     if (isSubmitted) return;
 
     if (timeLeft <= 0) {
+      setIsSubmitted(true);
       handleSubmit();
       return;
     }
@@ -27,137 +90,64 @@ export default function App() {
     }, 1000);
 
     return () => clearInterval(timerId);
-  }, [timeLeft, isSubmitted]);
+  }, [timeLeft, isSubmitted, handleSubmit]);
 
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainSeconds = seconds % 60;
+  const onAnswer = useCallback(
+      (optionIndex: number) => {
+        if (isSubmitted) return;
 
-    return `${String(minutes).padStart(2, "0")}:${String(
-        remainSeconds
-    ).padStart(2, "0")}`;
-  };
+        setSelectingOption((prev) => ({
+          ...prev,
+          [selectingQuestion.id]: optionIndex,
+        }));
+      },
+      [selectingQuestion.id, isSubmitted]
+  );
 
-  const handleChooseAnswer = (optionIndex: number) => {
-    if (isSubmitted) return;
+  const onNext = useCallback(() => {
+    if (questionIndex === questions.length - 1) return;
+    setQuestionIndex(questionIndex + 1);
+  }, [questionIndex, questions.length]);
 
-    const newAnswers = [...answers];
-    newAnswers[currentIndex] = optionIndex;
-    setAnswers(newAnswers);
-  };
+  const onPrev = useCallback(() => {
+    if (questionIndex === 0) return;
+    setQuestionIndex(questionIndex - 1);
+  }, [questionIndex]);
 
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const handleSubmit = () => {
-    alert("Nộp bài thành công!");
-
-    setCurrentIndex(0);
-    setAnswers(Array(questions.length).fill(null));
-    setTimeLeft(EXAM_TIME);
-    setIsSubmitted(false);
-  };
+  const onSelectQuestion = useCallback((index: number) => {
+    setQuestionIndex(index);
+  }, []);
 
   return (
-      <div className="app">
-        <header className="header">
-          <div>
-            <h1>Ôn Thi GPLX</h1>
-            <p>Đề thi ngẫu nhiên số 1</p>
-          </div>
+      <>
+        <HeaderBar timeLeft={timeLeft} onSubmit={handleSubmit} />
 
-          <div className="header-right">
-            <div className="timer">⏱ {formatTime(timeLeft)}</div>
+        <Box className="container">
+          <Grid container spacing={2}>
+            <Grid size={8}>
+              <QuestionBox
+                  question={selectingQuestion}
+                  index={questionIndex + 1}
+                  selectingIndex={selectingOption[selectingQuestion.id]}
+                  onAnswer={onAnswer}
+                  disabled={isSubmitted}
+              />
+            </Grid>
 
-            <button className="submit-btn" onClick={handleSubmit}>
-              Nộp bài
-            </button>
-          </div>
-        </header>
-
-        <main className="main">
-          <section className="question-card">
-            <div className="question-title">
-              <span>Câu {currentQuestion.id}</span>
-              <h2>{currentQuestion.question}</h2>
-            </div>
-
-            <div className="options">
-              {currentQuestion.options.map((option, index) => (
-                  <label
-                      key={index}
-                      className={`option ${
-                          answers[currentIndex] === index ? "selected" : ""
-                      }`}
-                  >
-                    <input
-                        type="radio"
-                        name={`question-${currentQuestion.id}`}
-                        checked={answers[currentIndex] === index}
-                        disabled={isSubmitted}
-                        onChange={() => handleChooseAnswer(index)}
-                    />
-
-                    {option}
-                  </label>
-              ))}
-            </div>
-          </section>
-
-          <aside className="sidebar">
-            <div className="nav-buttons">
-              <button onClick={handlePrev} disabled={currentIndex === 0}>
-                ‹ Câu trước
-              </button>
-
-              <button
-                  onClick={handleNext}
-                  disabled={currentIndex === questions.length - 1}
-              >
-                Câu tiếp ›
-              </button>
-            </div>
-
-            <h3>DANH SÁCH CÂU HỎI</h3>
-
-            <div className="question-list">
-              {questions.map((question, index) => (
-                  <button
-                      key={question.id}
-                      onClick={() => setCurrentIndex(index)}
-                      className={`
-                  question-number
-                  ${currentIndex === index ? "active" : ""}
-                  ${answers[index] !== null ? "answered" : ""}
-                `}
-                  >
-                    {question.id}
-                  </button>
-              ))}
-            </div>
-
-            <div className="legend">
-              <p>
-                <span className="box empty"></span> Chưa trả lời
-              </p>
-              <p>
-                <span className="box answered-box"></span> Đã trả lời
-              </p>
-              <p>
-                <span className="box active-box"></span> Đang chọn
-              </p>
-            </div>
-          </aside>
-        </main>
-      </div>
+            <Grid size={4}>
+              <SideBar
+                  questions={questions}
+                  selectingOption={selectingOption}
+                  selectingQuestion={questionIndex}
+                  onPrev={onPrev}
+                  onNext={onNext}
+                  onSelectQuestion={onSelectQuestion}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+      </>
   );
 }
+
+export default App;
