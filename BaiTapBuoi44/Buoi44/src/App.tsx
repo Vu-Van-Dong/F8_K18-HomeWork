@@ -1,111 +1,184 @@
+import "./App.css";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { HeaderBar, TableContainer } from "./components";
 import { useMemo, useState } from "react";
-import "./index.css";
+import type { OrderI } from "./types";
 
-import { orders } from "./data/orders";
-import TableContainer from "./components/TableContainer";
+function App() {
+    const orders: OrderI[] = [
+        {
+            id: "ORD-001",
+            customer: "Nguyễn Văn A",
+            date: "2023-10-01",
+            value: 1500000,
+            status: "Hoàn thành",
+        },
+        {
+            id: "ORD-002",
+            customer: "Trần Thị B",
+            date: "2023-10-05",
+            value: 500000,
+            status: "Đang xử lý",
+        },
+        {
+            id: "ORD-003",
+            customer: "Lê Văn C",
+            date: "2023-10-10",
+            value: 2500000,
+            status: "Hoàn thành",
+        },
+        {
+            id: "ORD-004",
+            customer: "Phạm Thị D",
+            date: "2023-10-12",
+            value: 800000,
+            status: "Đã hủy",
+        },
+        {
+            id: "ORD-005",
+            customer: "Hoàng Văn E",
+            date: "2023-10-15",
+            value: 3200000,
+            status: "Hoàn thành",
+        },
+        {
+            id: "ORD-006",
+            customer: "Vũ Thị F",
+            date: "2023-10-18",
+            value: 1200000,
+            status: "Hoàn thành",
+        },
+        {
+            id: "ORD-007",
+            customer: "Đặng Văn G",
+            date: "2023-10-22",
+            value: 400000,
+            status: "Đang xử lý",
+        },
+        {
+            id: "ORD-008",
+            customer: "Bùi Thị H",
+            date: "2023-10-25",
+            value: 5500000,
+            status: "Hoàn thành",
+        },
+    ];
 
-export default function App() {
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
+    const [fromDate, setFromDate] = useState("");
+    const [toDate, setToDate] = useState("");
+    const [counter, setCounter] = useState(0);
 
-  // state không liên quan
-  const [counter, setCounter] = useState(0);
+    const filteredOrders = useMemo(() => {
+        console.log("Đang lọc đơn hàng...");
 
-  // useMemo lọc dữ liệu
-  const filteredOrders = useMemo(() => {
-    console.log("Đang filter dữ liệu...");
+        return orders.filter((order) => {
+            const orderDate = new Date(order.date);
 
-    return orders.filter((order) => {
-      const orderDate = new Date(order.date);
+            if (fromDate && orderDate < new Date(fromDate)) {
+                return false;
+            }
 
-      if (fromDate && orderDate < new Date(fromDate)) {
-        return false;
-      }
+            if (toDate && orderDate > new Date(toDate)) {
+                return false;
+            }
 
-      if (toDate && orderDate > new Date(toDate)) {
-        return false;
-      }
+            return true;
+        });
+    }, [fromDate, toDate]);
 
-      return true;
-    });
-  }, [fromDate, toDate]);
+    const totalRevenue = useMemo(() => {
+        console.log("Đang tính tổng doanh thu...");
 
-  // useMemo tính tổng doanh thu
-  const totalRevenue = useMemo(() => {
-    console.log("Đang tính tổng tiền...");
+        return filteredOrders
+            .filter((order) => order.status === "Hoàn thành")
+            .reduce((total, order) => total + order.value, 0);
+    }, [filteredOrders]);
 
-    return filteredOrders
-        .filter((order) => order.status === "Hoàn thành")
-        .reduce((sum, order) => sum + order.value, 0);
-  }, [filteredOrders]);
+    const formatMoney = (value: number) => {
+        return value.toLocaleString("vi-VN") + " đ";
+    };
 
-  function formatMoney(value: number): string {
-    return value.toLocaleString("vi-VN") + " đ";
-  }
+    return (
+        <>
+            <HeaderBar />
 
-  return (
-      <div className="container">
-        <h1>Order Dashboard</h1>
+            <Box className="container">
+                <Button
+                    variant="contained"
+                    onClick={() => setCounter(counter + 1)}
+                    sx={{ mb: 2 }}
+                >
+                    Counter: {counter}
+                </Button>
 
-        <button
-            className="counter-btn"
-            onClick={() => setCounter(counter + 1)}
-        >
-          Counter: {counter}
-        </button>
+                <Grid container spacing={3}>
+                    <Grid size={6}>
+                        <Box className="statCard blueCard">
+                            <Typography color="text.secondary">Số lượng đơn hàng</Typography>
+                            <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+                                {filteredOrders.length}{" "}
+                                <span className="unit">đơn</span>
+                            </Typography>
+                        </Box>
+                    </Grid>
 
-        {/* thống kê */}
-        <div className="stats">
-          <div className="card blue">
-            <p>Số lượng đơn hàng</p>
-            <h2>{filteredOrders.length} đơn</h2>
-          </div>
+                    <Grid size={6}>
+                        <Box className="statCard greenCard">
+                            <Typography color="text.secondary">
+                                Tổng doanh thu (Hoàn thành)
+                            </Typography>
+                            <Typography variant="h4" sx={{ fontWeight: "bold", color: "#16a34a" }}>
+                                {formatMoney(totalRevenue)}
+                            </Typography>
+                        </Box>
+                    </Grid>
+                </Grid>
 
-          <div className="card green">
-            <p>Tổng doanh thu (Hoàn thành)</p>
-            <h2>{formatMoney(totalRevenue)}</h2>
-          </div>
-        </div>
+                <Box className="filterBox">
+                    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+                        Bộ lọc theo ngày
+                    </Typography>
 
-        {/* filter */}
-        <div className="filter-box">
-          <h2>Bộ lọc theo ngày</h2>
+                    <Box className="filterRow">
+                        <TextField
+                            label="Từ ngày"
+                            type="date"
+                            value={fromDate}
+                            onChange={(e) => setFromDate(e.target.value)}
+                            slotProps={{
+                                inputLabel: {
+                                    shrink: true,
+                                },
+                            }}
+                        />
 
-          <div className="filter-row">
-            <div>
-              <label>Từ ngày</label>
+                        <TextField
+                            label="Đến ngày"
+                            type="date"
+                            value={toDate}
+                            onChange={(e) => setToDate(e.target.value)}
+                            slotProps={{
+                                inputLabel: {
+                                    shrink: true,
+                                },
+                            }}
+                        />
 
-              <input
-                  type="date"
-                  value={fromDate}
-                  onChange={(e) => setFromDate(e.target.value)}
-              />
-            </div>
+                        <Button
+                            onClick={() => {
+                                setFromDate("");
+                                setToDate("");
+                            }}
+                        >
+                            Xóa bộ lọc
+                        </Button>
+                    </Box>
+                </Box>
 
-            <div>
-              <label>Đến ngày</label>
-
-              <input
-                  type="date"
-                  value={toDate}
-                  onChange={(e) => setToDate(e.target.value)}
-              />
-            </div>
-
-            <button
-                className="clear-btn"
-                onClick={() => {
-                  setFromDate("");
-                  setToDate("");
-                }}
-            >
-              Xóa bộ lọc
-            </button>
-          </div>
-        </div>
-
-        {/* bảng */}
-        <TableContainer orders={filteredOrders} />
-      </div>
-  );
+                <TableContainer orders={filteredOrders} />
+            </Box>
+        </>
+    );
 }
+
+export default App;

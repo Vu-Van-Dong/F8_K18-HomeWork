@@ -1,29 +1,40 @@
+import { Chip, TableCell, TableRow } from "@mui/material";
 import React from "react";
-import type { Order } from "../types/order";
+import type { OrderI } from "../types";
 
-interface OrderRowProps {
-    order: Order;
+interface Props {
+    order: OrderI;
 }
 
-function formatMoney(value: number): string {
-    return value.toLocaleString("vi-VN") + " đ";
-}
-
-function OrderRow({ order }: OrderRowProps) {
+function OrderRow({ order }: Props) {
     console.log("Render OrderRow:", order.id);
 
+    const formatMoney = (value: number) => {
+        return value.toLocaleString("vi-VN") + " đ";
+    };
+
+    const getColor = () => {
+        if (order.status === "Hoàn thành") return "success";
+        if (order.status === "Đang xử lý") return "warning";
+        return "error";
+    };
+
     return (
-        <tr>
-            <td>{order.id}</td>
-            <td>{order.customer}</td>
-            <td>{order.date}</td>
-            <td className="price">{formatMoney(order.value)}</td>
-            <td>
-        <span className={`status ${order.status.replaceAll(" ", "-")}`}>
-          {order.status}
-        </span>
-            </td>
-        </tr>
+        <TableRow>
+            <TableCell>{order.id}</TableCell>
+            <TableCell>{order.customer}</TableCell>
+            <TableCell>{order.date}</TableCell>
+            <TableCell sx={{ fontWeight: "bold" }}>
+                {formatMoney(order.value)}
+            </TableCell>
+            <TableCell>
+                <Chip
+                    label={order.status}
+                    color={getColor()}
+                    size="small"
+                />
+            </TableCell>
+        </TableRow>
     );
 }
 

@@ -1,36 +1,47 @@
 import React from "react";
+import {
+    Box,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+    Typography,
+} from "@mui/material";
 import OrderRow from "./OrderRow";
-import type { Order } from "../types/order";
+import type { OrderI } from "../types";
 
-interface TableContainerProps {
-    orders: Order[];
+interface Props {
+    orders: OrderI[];
 }
 
-function TableContainer({ orders }: TableContainerProps) {
+function TableContainer({ orders }: Props) {
     console.log("Render TableContainer");
 
     return (
-        <div className="table-wrapper">
-            <h2>Danh sách đơn hàng</h2>
+        <Box className="tableBox">
+            <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+                Danh sách đơn hàng
+            </Typography>
 
-            <table>
-                <thead>
-                <tr>
-                    <th>Mã ĐH</th>
-                    <th>Khách hàng</th>
-                    <th>Ngày tạo</th>
-                    <th>Giá trị</th>
-                    <th>Trạng thái</th>
-                </tr>
-                </thead>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Mã ĐH</TableCell>
+                        <TableCell>Khách hàng</TableCell>
+                        <TableCell>Ngày tạo</TableCell>
+                        <TableCell>Giá trị</TableCell>
+                        <TableCell>Trạng thái</TableCell>
+                    </TableRow>
+                </TableHead>
 
-                <tbody>
-                {orders.map((order) => (
-                    <OrderRow key={order.id} order={order} />
-                ))}
-                </tbody>
-            </table>
-        </div>
+                <TableBody>
+                    {orders.map((order) => (
+                        <OrderRow key={order.id} order={order} />
+                    ))}
+                </TableBody>
+            </Table>
+        </Box>
     );
 }
 
